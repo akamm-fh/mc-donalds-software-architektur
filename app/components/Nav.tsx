@@ -1,0 +1,22 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+export default function Nav() {
+  const pathname = usePathname();
+
+  const linkClass = (path: string) =>
+    `leading-normal duration-200 text-3xl font-bold rounded-xl px-5 py-1.5 ${
+      pathname === path ? "bg-button" : "bg-transparent hover:bg-button"
+    }`;
+
+  return (
+    <ul className="flex flex-row gap-5">
+      <li><Link className={linkClass("/")} href="/">Home</Link></li>
+      <li><Link className={linkClass("/pages/products")} href="/pages/products">Products</Link></li>
+      <li><Link className={linkClass("/pages/cart")} href="/pages/cart">Cart</Link></li>
+      <li><Link className={linkClass("/pages/orders")} href="/pages/orders">Orders</Link></li>
+    </ul>
+  );
+}
