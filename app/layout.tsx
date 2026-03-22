@@ -1,10 +1,9 @@
 import './globals.css'
 import './font.css'
 import Nav from "@/components/Nav";
+import Link from 'next/link';
 
 export default function RootLayout({children,}: {children: React.ReactNode}) {
-
-
     return (
         <html lang="en">
             <body>
@@ -24,6 +23,7 @@ export default function RootLayout({children,}: {children: React.ReactNode}) {
                     <div className='flex flex-col gap-3 items-center'>
                         <p className='font-bold text-center text-4xl leading-normal'>Software Architektur - McDonalds</p>
                         <p className='text-xl leading-normal text-center'>by Andreas Kamm - FH Salzburg Project</p>
+                        <Link href="/pages/imprint" className='italic font-bold text-lg'>Imprint</Link>
                     </div>
                 </footer>
             </body>

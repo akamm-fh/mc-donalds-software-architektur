@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## Getting Started Local
 
 First, run the development server:
 
@@ -15,6 +15,11 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
+## Deploy on Vercel
+
+&rarr; https://mc-donalds-software-architektur.vercel.app/
 
 
 ## Unit tests
@@ -35,11 +40,3 @@ npm run test:coverage
 ```bash
 npm run lint
 ```
-
-
-
-## Deploy on Vercel
-
--> 
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
