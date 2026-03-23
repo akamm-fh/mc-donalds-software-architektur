@@ -34,12 +34,12 @@ export default function ProductsPage() {
     <>
       {isAddedToCart && <NotificationCard message="Product added to cart!" link="/pages/cart" linkText="View your cart" />}
 
-      <h1 className="text-6xl leading-normal font-bold">Products</h1>
+      <h1 className="md:text-6xl text-4xl leading-normal font-bold">Products</h1>
 
       {productsRender.map(productCategory => (
-        <section key={ProductCategory[productCategory.category]} className="flex flex-col gap-6">
-          <h2 className="text-5xl leading-normal font-bold">{ProductCategory[productCategory.category]}</h2>
-          <div className="flex flex-row gap-8 flex-wrap">
+        <section key={ProductCategory[productCategory.category]} className="flex flex-col md:gap-6 gap-5">
+          <h2 className="md:text-5xl text-3xl leading-normal font-bold">{ProductCategory[productCategory.category]}</h2>
+          <div className="flex flex-row md:gap-8 sm:gap-6 gap-3.5 flex-wrap">
             {productCategory.products.map((product: Product)=>(
               <ProductCard key={product.id} product={product} handlerAfterAdd={() => setIsAddedToCart(true)} />
             ))} 

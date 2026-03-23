@@ -17,10 +17,10 @@ export default function OrderItem({ order, onCancelHandler } : { order: Order, o
 
     return(
         <div className="shadow-card p-6 rounded-4xl bg-white flex flex-col gap-6 justify-between w-fit">
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col md:gap-6 gap-4">
                 <div className="flex flex-col gap-1">
-                    <h2 className="font-bold text-4xl">Order #{order.id}</h2>
-                    <p className="italic text-base">{formattedDate}</p>
+                    <h2 className="font-bold md:text-4xl sm:text-3xl text-xl">Order #{order.id}</h2>
+                    <p className="italic sm:text-base text-sm">{formattedDate}</p>
                 </div>
 
                 <div className="flex flex-col gap-2">
@@ -28,10 +28,10 @@ export default function OrderItem({ order, onCancelHandler } : { order: Order, o
                 </div>
             </div>
 
-            <div className="flex flex-col gap-6">
-                <h3 className="text-2xl font-bold">Total amount: <span className="text-cart-red">{totalCost} €</span></h3>
+            <div className="flex flex-col md:gap-6 gap-4">
+                <h3 className="md:text-2xl sm:text-xl text-lg font-bold">Total amount: <span className="text-cart-red">{totalCost} €</span></h3>
 
-                <button onClick={() => {cancelOrder(order.id); onCancelHandler()}} className="bg-button w-fit duration-200 cursor-pointer hover:bg-button-hover px-4 py-1.5 text-2xl font-bold rounded-xl">Cancel order</button>
+                <button onClick={() => {cancelOrder(order.id); onCancelHandler()}} className="bg-button w-fit duration-200 cursor-pointer hover:bg-button-hover px-4 py-1.5 md:text-2xl sm:text-xl text-lg font-bold rounded-xl">Cancel order</button>
             </div>
         </div>
     )

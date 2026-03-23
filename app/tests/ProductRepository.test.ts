@@ -1,5 +1,6 @@
 import { ProductCategory } from "@/data/products";
 import { ProductRepository } from "@/repositories/ProductRepository";
+import { ProductService } from "@/services/ProductService";
 
 const repo = new ProductRepository();
 
@@ -38,4 +39,19 @@ test("should return only burgers", () => {
     products.forEach(p => {
         expect(p.category).toBe(ProductCategory.Burger);
     });
+});
+
+test("should work with mock repository", () => {
+    const mockRepo = {
+        getAll: () => [
+            { id: 1, name: "Mock", price: 1, category: 0 }
+        ],
+        getById: () => undefined
+    };
+
+    const service = new ProductService(mockRepo);
+
+    const products = service.getProducts();
+
+    expect(products.length).toBe(1);
 });

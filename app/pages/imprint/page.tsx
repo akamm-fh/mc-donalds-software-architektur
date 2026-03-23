@@ -9,7 +9,7 @@ export default function ImprintPage(){
 
     return(
         <>
-            <h1 className="text-6xl leading-normal font-bold">Imprint</h1>
+            <h1 className="md:text-6xl text-4xl leading-normal font-bold">Imprint</h1>
 
             <div className="flex flex-row gap-8">
                 <h2>Images:</h2>

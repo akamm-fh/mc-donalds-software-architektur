@@ -18,14 +18,16 @@ export default function OrdersPage(){
 
     const orders = useOrderStore((s) => s.orders).sort((o1, o2) => new Date(o2.date).getTime() - new Date(o1.date).getTime());
   
+    const ordersAvailable = orders.length > 0;
+
     return(
         <>
             {isOrderCanceled && <NotificationCard message="Order canceled!" link={null} linkText={null}/>}
         
-            <h1 className="text-6xl leading-normal font-bold">Orders</h1>
+            <h1 className="md:text-6xl text-4xl leading-normal font-bold">Orders</h1>
 
-            <div className="flex flex-row gap-8 flex-wrap">
-                {orders.map(order => <OrderCard key={order.id} order={order} onCancelHandler={()=>setIsOrderCanceled(true)} />)}
+            <div className="flex flex-row md:gap-8 gap-6 flex-wrap">
+                {ordersAvailable ? orders.map(order => <OrderCard key={order.id} order={order} onCancelHandler={()=>setIsOrderCanceled(true)} />) : <p>No orders placed yet.</p>}
             </div>
             
         </>
