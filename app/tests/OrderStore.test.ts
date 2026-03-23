@@ -19,6 +19,7 @@ test("should place a new order", () => {
 
     expect(orders.length).toBe(1);
     expect(orders[0].cartItems).toEqual(orderItems);
+    expect(orders[0].cartItems).not.toBe(orderItems);
 });
 
 test("should cancel an order", () => {
@@ -39,4 +40,25 @@ test("should cancel an order", () => {
     const orders = useOrderStore.getState().orders;
 
     expect(orders.length).toBe(0);
+});
+
+test("should increase order count", () => {
+    const store = useOrderStore.getState();
+
+    store.placeOrder([]);
+    store.placeOrder([]);
+
+    const orders = useOrderStore.getState().orders;
+
+    expect(orders.length).toBe(2);
+});
+
+test("should set order date", () => {
+    const store = useOrderStore.getState();
+
+    store.placeOrder([]);
+
+    const order = useOrderStore.getState().orders[0];
+
+    expect(order.date).toBeInstanceOf(Date);
 });

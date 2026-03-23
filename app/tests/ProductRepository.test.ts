@@ -37,6 +37,9 @@ test("should return only burgers", () => {
     // Assert
     expect(products.length).toBeGreaterThan(0);
     products.forEach(p => {
+        expect(p).toHaveProperty("id");
+        expect(p).toHaveProperty("name");
+        expect(p).toHaveProperty("price");
         expect(p.category).toBe(ProductCategory.Burger);
     });
 });
@@ -54,4 +57,12 @@ test("should work with mock repository", () => {
     const products = service.getProducts();
 
     expect(products.length).toBe(1);
+});
+
+test("should return empty array for category with no products", () => {
+    const fakeCategory = 999 as ProductCategory;
+
+    const result = repo.getByCategory(fakeCategory);
+
+    expect(result).toEqual([]);
 });

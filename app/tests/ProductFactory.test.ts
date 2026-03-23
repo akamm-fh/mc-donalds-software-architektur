@@ -14,6 +14,24 @@ test("should create Burger product", () => {
     expect(product.name).toBe("Test Burger");
 });
 
+test("should create Drink product", () => {
+    const product = ProductFactory.create(ProductCategory.Drink, 1, "Cola", 2);
+
+    expect(product.constructor.name).toBe("Drink");
+});
+
+test("should create Side product", () => {
+    const product = ProductFactory.create(ProductCategory.Side, 1, "Pommes groß", 2);
+
+    expect(product.constructor.name).toBe("Side");
+});
+
+test("should create Dessert product", () => {
+    const product = ProductFactory.create(ProductCategory.Desert, 1, "Apfeltasche", 2);
+
+    expect(product.constructor.name).toBe("Desert");
+});
+
 test("should throw error for unknown category", () => {
     // Arrange
     const wrongCategory = 999 as ProductCategory;

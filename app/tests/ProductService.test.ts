@@ -1,16 +1,18 @@
-import { ProductRepository } from "@/repositories/ProductRepository";
+import { ProductCategory } from "@/data/products";
+import { Burger } from "@/models/Burger";
 import { ProductService } from "@/services/ProductService"
 
-test("should return products with correct structure", () => {
-    // Arrange
-    const repo = new ProductRepository();
-    const service = new ProductService(repo);
+test("should map repository products using factory", () => {
+    const mockRepo = {
+        getAll: () => [
+            { id: 1, name: "Test", price: 1, category: ProductCategory.Burger }
+        ],
+        getById: () => undefined
+    };
 
-    // Act
+    const service = new ProductService(mockRepo);
+
     const products = service.getProducts();
 
-    // Assert
-    expect(products.length).toBeGreaterThan(0);
-    expect(products[0]).toHaveProperty("id");
-    expect(products[0]).toHaveProperty("name");
+    expect(products[0]).toBeInstanceOf(Burger);
 });

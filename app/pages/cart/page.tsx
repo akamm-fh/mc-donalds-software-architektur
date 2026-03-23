@@ -35,15 +35,15 @@ export default function CartPage(){
         <>
             {isOrderPlaced && <NotificationCard message="Order placed!" link="/pages/orders" linkText="View your orders"/>}
         
-            <div className="flex lg:flex-row flex-col justify-between lg:items-center lg:gap-0 gap-4">
+            <div className="flex lg:flex-row flex-col justify-between lg:gap-0 gap-4">
                 <div className="flex flex-col lg:gap-6 sm:gap-4 gap-2">
-                    <h1 className="md:text-6xl text-4xl leading-normal font-bold">Your Cart:</h1>
+                    <h1 className="md:text-6xl text-4xl font-bold">Your Cart:</h1>
                     {itemsInCart && <p className="leading-normal md:text-2xl sm:text-xl text-lg">Products in your cart: {items.length}</p>}
                 </div>
 
                 <div className="flex lg:flex-col flex-row lg:items-end justify-between lg:justify-start sm:gap-6 gap-4">
                     {itemsInCart && <button onClick={onClickOrderHandler} className="bg-button h-fit duration-200 cursor-pointer hover:bg-button-hover px-4 py-1.5 md:text-3xl sm:text-xl text-lg font-bold leading-normal rounded-xl">Place your order</button>}
-                    <span className="md:text-5xl sm:text-3xl text-2xl leading-normal font-bold italic text-nowrap text-cart-red">{totalCost} €</span>
+                    <span className="md:text-5xl sm:text-3xl text-2xl font-bold italic text-nowrap text-cart-red">{totalCost} €</span>
                 </div>
             </div>
 

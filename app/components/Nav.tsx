@@ -12,11 +12,11 @@ export default function Nav() {
     }`;
 
   return (
-    <ul className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
-      <li><Link className={linkClass("/")} href="/">Home</Link></li>
-      <li><Link className={linkClass("/pages/products")} href="/pages/products">Products</Link></li>
-      <li><Link className={linkClass("/pages/cart")} href="/pages/cart">Cart</Link></li>
-      <li><Link className={linkClass("/pages/orders")} href="/pages/orders">Orders</Link></li>
+    <ul className="flex flex-col sm:flex-row items-center sm:items-start gap-y-3 gap-x-5">
+      <li className="inline-flex"><Link className={linkClass("/")} href="/">Home</Link></li>
+      <li className="inline-flex"><Link className={linkClass("/pages/products")} href="/pages/products">Products</Link></li>
+      <li className="inline-flex"><Link className={linkClass("/pages/cart")} href="/pages/cart">Cart</Link></li>
+      <li className="inline-flex"><Link className={linkClass("/pages/orders")} href="/pages/orders">Orders</Link></li>
     </ul>
   );
 }
