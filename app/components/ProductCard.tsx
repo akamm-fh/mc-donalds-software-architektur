@@ -26,9 +26,9 @@ export function ProductCard({ product, handlerAfterAdd } : {product: Product, ha
                     <div className="flex sm:flex-row flex-col gap-2 sm:justify-between">
                         <span className="italic text-xl">{product.price.toFixed(2)} €</span>
                         <span className="bg-counter w-fit px-2 py-1.5 text-white italic font-bold text-xl rounded-4xl flex flex-row gap-3">
-                            <button onClick={()=>setCount(Math.max(0, count-1))} className="cursor-pointer">-</button>
+                            <button onClick={()=>setCount(Math.max(0, count-1))} className="cursor-pointer hover:text-black duration-200">-</button>
                             {count}
-                            <button onClick={()=>setCount(count+1)} className="cursor-pointer">+</button>
+                            <button onClick={()=>setCount(count+1)} className="cursor-pointer hover:text-black duration-200">+</button>
                         </span>
                     </div>
                 </div>

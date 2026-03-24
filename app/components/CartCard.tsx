@@ -27,12 +27,12 @@ export default function CartItemCard({item}: {item: CartItem}){
                 <span className="text-button italic font-bold lg:text-4xl md:text-3xl text-xl text-nowrap lg:absolute lg:right-6">{totalItemCost} €</span>
                 
                 <span className="bg-counter px-2 py-1.5 text-white italic font-bold sm:text-xl text-lg rounded-4xl flex flex-row gap-3">
-                    <button onClick={()=>decreaseAmount(item.id)} className="cursor-pointer">-</button>
+                    <button onClick={()=>decreaseAmount(item.id)} className="cursor-pointer hover:text-black duration-200">-</button>
                     {item.amount}
-                    <button onClick={()=>increaseAmount(item.id)} className="cursor-pointer">+</button>
+                    <button onClick={()=>increaseAmount(item.id)} className="cursor-pointer hover:text-black duration-200">+</button>
                 </span>
             </div>
-            <button onClick={() => removeItem(item.id)} className="absolute sm:top-6 top-4 sm:right-4 right-2.5 sm:text-4xl text-2xl leading-0 text-cart-red cursor-pointer">x</button>
+            <button onClick={() => removeItem(item.id)} className="absolute sm:top-6 top-4 hover:text-black duration-200 sm:right-4 right-2.5 sm:text-4xl text-2xl leading-0 text-cart-red cursor-pointer">x</button>
         </div>
     );
 }
