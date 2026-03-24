@@ -17,7 +17,7 @@ export function ProductCard({ product, handlerAfterAdd } : {product: Product, ha
 
     return(
         <div className="shadow-card sm:p-6 p-4 rounded-4xl bg-white flex flex-col gap-6 lg:w-64 md:w-56 sm:w-48 w-42">
-            <img loading="lazy" className="shadow-yellow rounded-2xl object-center size-auto" src={`/${product.name.toLowerCase().replaceAll(" ", "-")}.jpeg`} alt="" />
+            <img loading="lazy" className="rounded-2xl object-center size-auto" src={`/${product.name.toLowerCase().replaceAll(" ", "-")}.jpeg`} alt="" />
             
             <div className="flex flex-col gap-5 h-full justify-between">
                 <div className="flex flex-col gap-2">

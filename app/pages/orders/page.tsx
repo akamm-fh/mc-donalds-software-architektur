@@ -26,7 +26,7 @@ export default function OrdersPage(){
         
             <h1 className="md:text-6xl text-4xl leading-normal font-bold">Orders</h1>
 
-            <div className="flex flex-row md:gap-8 gap-6 flex-wrap">
+            <div className="flex flex-col md:grid 4xl:grid-cols-4 2xl:grid-cols-3 lg:grid-cols-2 md:gap-8 gap-6">
                 {ordersAvailable ? orders.map(order => <OrderCard key={order.id} order={order} onCancelHandler={()=>setIsOrderCanceled(true)} />) : <p>No orders placed yet.</p>}
             </div>
             

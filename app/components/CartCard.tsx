@@ -11,7 +11,7 @@ export default function CartItemCard({item}: {item: CartItem}){
     return(
         <div className="relative shadow-card p-6 lg:gap-12 gap-6 sm:rounded-4xl rounded-2xl bg-white flex flex-row justify-between lg:justify-start items-center h-fit">
             <div className="flex flex-row items-center lg:gap-12 gap-8">
-                <img loading="lazy" className="shadow-yellow rounded-2xl object-center md:size-36 size-30 sm:inline hidden" src={`/${item.product.name.toLowerCase().replaceAll(" ", "-")}.jpeg`} alt="" />
+                <img loading="lazy" className="rounded-2xl object-center md:size-36 size-30 sm:inline hidden" src={`/${item.product.name.toLowerCase().replaceAll(" ", "-")}.jpeg`} alt="" />
 
                 <div className="flex flex-col gap-y-1">
                     <div className="flex flex-row gap-y-0 sm:gap-x-6 gap-x-4 flex-wrap items-center">

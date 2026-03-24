@@ -16,7 +16,7 @@ export default function OrderItem({ order, onCancelHandler } : { order: Order, o
     });
 
     return(
-        <div className="shadow-card p-6 rounded-4xl bg-white flex flex-col gap-6 justify-between md:w-fit w-full">
+        <div className="shadow-card p-6 rounded-4xl bg-white flex flex-col gap-6 justify-between w-full">
             <div className="flex flex-col md:gap-6 gap-4">
                 <div className="flex flex-col gap-1">
                     <h2 className="font-bold md:text-4xl sm:text-3xl text-xl">Order #{order.id}</h2>
