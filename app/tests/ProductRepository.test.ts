@@ -4,6 +4,18 @@ import { ProductService } from "@/services/ProductService";
 
 const repo = new ProductRepository();
 
+test("should return all products", () => {
+    const result = repo.getAll();
+
+    expect(result.length).toBeGreaterThan(0);
+    result.forEach(p => {
+        expect(p).toHaveProperty("id");
+        expect(p).toHaveProperty("name");
+        expect(p).toHaveProperty("price");
+        expect(p).toHaveProperty("category");
+    });
+});
+
 test("should find product by id", () => {
     // Arrange
     const id = 1;

@@ -1,4 +1,3 @@
-import { products } from "@/data/products";
 import { ProductRepository } from "@/repositories/ProductRepository";
 import { useCartStore } from "@/stores/CartStore";
 
@@ -73,6 +72,18 @@ test("should decrease amount of item", () => {
     expect(updatedItem.amount).toBe(1);
 });
 
+test("should do nothing when decreasing non-existing item", () => {
+    const store = useCartStore.getState();
+
+    // Act
+    store.decreaseAmount("non-existing-id");
+
+    // Assert
+    const items = useCartStore.getState().items;
+
+    expect(items).toHaveLength(0);
+});
+
 test("should remove item when amount reaches zero", () => {
     // Arrange
     const product = repo.getById(1)!;
@@ -122,4 +133,84 @@ test("should not affect other items when increasing one", () => {
 
     expect(items[0].amount).toBe(2);
     expect(items[1].amount).toBe(1);
+});
+
+test("should not change cart when removing non-existing item", () => {
+    const store = useCartStore.getState();
+
+    // Arrange
+    const product = repo.getById(1)!;
+    store.addItem(1, product);
+
+    // Act
+    store.removeItem("fake-id");
+
+    // Assert
+    const items = useCartStore.getState().items;
+
+    expect(items).toHaveLength(1);
+});
+
+test("should increase amount of item", () => {
+    const product = repo.getById(1)!;
+    const store = useCartStore.getState();
+
+    store.addItem(1, product);
+    const item = useCartStore.getState().items[0];
+
+    store.increaseAmount(item.id);
+
+    const updatedItem = useCartStore.getState().items[0];
+
+    expect(updatedItem.amount).toBe(2);
+});
+
+test("should do nothing when increasing non-existing item", () => {
+    const store = useCartStore.getState();
+
+    store.increaseAmount("fake-id");
+
+    const items = useCartStore.getState().items;
+
+    expect(items).toHaveLength(0);
+});
+
+test("should not affect other items when decreasing one", () => {
+    const store = useCartStore.getState();
+
+    const product1 = repo.getById(1)!;
+    const product2 = repo.getById(2)!;
+
+    store.addItem(2, product1);
+    store.addItem(2, product2);
+
+    const item1 = useCartStore.getState().items[0];
+
+    // Act
+    store.decreaseAmount(item1.id);
+
+    const items = useCartStore.getState().items;
+
+    expect(items[0].amount).toBe(1);
+    expect(items[1].amount).toBe(2);
+});
+
+test("should only remove targeted item when amount reaches zero", () => {
+    const store = useCartStore.getState();
+
+    const product1 = repo.getById(1)!;
+    const product2 = repo.getById(2)!;
+
+    store.addItem(1, product1);
+    store.addItem(1, product2);
+
+    const item1 = useCartStore.getState().items[0];
+
+    // Act
+    store.decreaseAmount(item1.id);
+
+    const items = useCartStore.getState().items;
+
+    expect(items).toHaveLength(1);
+    expect(items[0].product.id).toBe(product2.id);
 });
