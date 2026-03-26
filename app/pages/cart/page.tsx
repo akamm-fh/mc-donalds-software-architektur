@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function CartPage(){
     useEffect(() => {
-        document.title = "Cart"
+        document.title = "Cart - McDonalds SA"
     }, []);
 
     const [isOrderPlaced, setIsOrderPlaced] = useState(false);

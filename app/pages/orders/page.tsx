@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function OrdersPage(){
     useEffect(() => {
-        document.title = "Orders"
+        document.title = "Orders - McDonalds SA"
     }, []);
 
     const [isOrderCanceled, setIsOrderCanceled] = useState(false);

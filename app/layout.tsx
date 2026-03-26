@@ -3,7 +3,7 @@ import './font.css'
 import Nav from "@/components/Nav";
 import Link from 'next/link';
 
-export default function RootLayout({children,}: {children: React.ReactNode}) {
+export default function RootLayout({children}: {children: React.ReactNode}) {
     return (
         <html lang="en">
             <body>

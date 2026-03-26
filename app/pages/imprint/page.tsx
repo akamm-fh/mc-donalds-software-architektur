@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export default function ImprintPage(){
     useEffect(() => {
-        document.title = "Imprint"
+        document.title = "Imprint - McDonalds SA"
     }, []);
 
     return(

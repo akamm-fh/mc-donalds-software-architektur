@@ -9,7 +9,7 @@ import { ProductRepository } from "@/repositories/ProductRepository"
 
 export default function ProductsPage() {
   useEffect(() => {
-    document.title = "Products"
+    document.title = "Products - McDonalds SA"
   }, []);
 
   const [isAddedToCart, setIsAddedToCart] = useState(false);
@@ -30,6 +30,8 @@ export default function ProductsPage() {
 
   const productsRender = [{category: ProductCategory.Burger, products: burgers}, {category: ProductCategory.Drink, products: drinks}, {category: ProductCategory.Side, products: sides}, {category: ProductCategory.Desert, products: deserts}]
 
+  const handlerAfterAdd = () => setIsAddedToCart(true);
+
   return (
     <>
       {isAddedToCart && <NotificationCard message="Product added to cart!" link="/pages/cart" linkText="View your cart" />}
@@ -41,7 +43,7 @@ export default function ProductsPage() {
           <h2 className="md:text-5xl text-3xl leading-normal font-bold">{ProductCategory[productCategory.category]}</h2>
           <div className="flex flex-row md:gap-8 sm:gap-6 gap-3.5 flex-wrap">
             {productCategory.products.map((product: Product)=>(
-              <ProductCard key={product.id} product={product} handlerAfterAdd={() => setIsAddedToCart(true)} />
+              <ProductCard key={product.id} product={product} handlerAfterAdd={handlerAfterAdd} />
             ))} 
           </div>
         </section>        
