@@ -3,7 +3,7 @@ import { Drink } from "@/models/Drink"
 import { Side } from "@/models/Side"
 
 import { Product, ProductCategory } from "@/data/products"
-import { Desert } from "@/models/Desert"
+import { Dessert } from "@/models/Dessert"
 
 export class ProductFactory {
     static create(category: ProductCategory, id: number, name: string, price: number): Product {
@@ -17,8 +17,8 @@ export class ProductFactory {
             case ProductCategory.Side:
                 return new Side(id, name, price)
 
-            case ProductCategory.Desert:
-                return new Desert(id, name, price)
+            case ProductCategory.Dessert:
+                return new Dessert(id, name, price)
 
             default:
                 throw new Error("Unknown product")

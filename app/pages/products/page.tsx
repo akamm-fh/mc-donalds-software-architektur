@@ -26,9 +26,9 @@ export default function ProductsPage() {
   const burgers = products.filter(product => product.category === ProductCategory.Burger);
   const drinks = products.filter(product => product.category === ProductCategory.Drink);
   const sides = products.filter(product => product.category === ProductCategory.Side);
-  const deserts = products.filter(product => product.category === ProductCategory.Desert);
+  const desserts = products.filter(product => product.category === ProductCategory.Dessert);
 
-  const productsRender = [{category: ProductCategory.Burger, products: burgers}, {category: ProductCategory.Drink, products: drinks}, {category: ProductCategory.Side, products: sides}, {category: ProductCategory.Desert, products: deserts}]
+  const productsRender = [{category: ProductCategory.Burger, products: burgers}, {category: ProductCategory.Drink, products: drinks}, {category: ProductCategory.Side, products: sides}, {category: ProductCategory.Dessert, products: desserts}]
 
   const handlerAfterAdd = () => setIsAddedToCart(true);
 

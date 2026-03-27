@@ -15,8 +15,8 @@ export function ProductCard({ product, handlerAfterAdd } : {product: Product, ha
         handlerAfterAdd();
     }
 
-    const increaseOnClick = () => setCount(Math.max(0, count-1));
-    const decreaseOnClick = () => setCount(count+1);
+    const increaseOnClick = () => setCount(count+1);
+    const decreaseOnClick = () => setCount(Math.max(0, count-1));
 
     return(
         <div className="shadow-card sm:p-6 p-4 rounded-4xl bg-white flex flex-col gap-6 lg:w-64 md:w-56 sm:w-48 w-42">
@@ -29,9 +29,9 @@ export function ProductCard({ product, handlerAfterAdd } : {product: Product, ha
                     <div className="flex sm:flex-row flex-col gap-2 sm:justify-between">
                         <span className="italic text-xl">{product.price.toFixed(2)} €</span>
                         <span className="bg-counter w-fit px-2 py-1.5 text-white italic font-bold text-xl rounded-4xl flex flex-row gap-3">
-                            <button onClick={increaseOnClick} className="cursor-pointer hover:text-black duration-200">-</button>
+                            <button onClick={decreaseOnClick} className="cursor-pointer hover:text-black duration-200">-</button>
                             {count}
-                            <button onClick={decreaseOnClick} className="cursor-pointer hover:text-black duration-200">+</button>
+                            <button onClick={increaseOnClick} className="cursor-pointer hover:text-black duration-200">+</button>
                         </span>
                     </div>
                 </div>

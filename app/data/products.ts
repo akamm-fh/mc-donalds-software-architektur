@@ -9,7 +9,7 @@ export enum ProductCategory {
     Burger,
     Drink,
     Side,
-    Desert,
+    Dessert,
 }
 
 export const products: Product[] = [
@@ -38,6 +38,6 @@ export const products: Product[] = [
   { id: 18, name: "Eistee", price: 2.8, category: ProductCategory.Drink },
 
   // Desserts
-  { id: 19, name: "McFlurry", price: 3.5, category: ProductCategory.Desert },
-  { id: 20, name: "Apfeltasche", price: 2.2, category: ProductCategory.Desert },
+  { id: 19, name: "McFlurry", price: 3.5, category: ProductCategory.Dessert },
+  { id: 20, name: "Apfeltasche", price: 2.2, category: ProductCategory.Dessert },
 ];

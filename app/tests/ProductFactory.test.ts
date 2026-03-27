@@ -27,9 +27,9 @@ test("should create Side product", () => {
 });
 
 test("should create Dessert product", () => {
-    const product = ProductFactory.create(ProductCategory.Desert, 1, "Apfeltasche", 2);
+    const product = ProductFactory.create(ProductCategory.Dessert, 1, "Apfeltasche", 2);
 
-    expect(product.constructor.name).toBe("Desert");
+    expect(product.constructor.name).toBe("Dessert");
 });
 
 test("should throw error for unknown category", () => {
