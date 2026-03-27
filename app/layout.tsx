@@ -7,7 +7,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     return (
         <html lang="en">
             <body>
-                <header className='shadow-hero flex flex-col justify-center items-center sm:h-[40vh] p-6 bg-[url(/hero.png)] bg-center bg-no-repeat bg-cover'>
+                <header className='shadow-hero flex flex-col justify-center items-center sm:min-h-[40vh] p-6 bg-[url(/hero.png)] bg-center bg-no-repeat bg-cover'>
                     <nav className='bg-nav py-5 px-8 md:py-8 md:px-12 rounded-3xl flex flex-col items-center sm:gap-8 gap-6'>
                         <img className='size-20 sm:size-28 md:size-39' src="/logo.png" alt="Logo" />
 
