@@ -8,46 +8,46 @@ import NotificationCard from "@/components/NotificationCard"
 import { ProductRepository } from "@/repositories/ProductRepository"
 
 export default function ProductsPage() {
-  useEffect(() => {
-    document.title = "Products - McDonalds SA"
-  }, []);
+    useEffect(() => {
+        document.title = "Products - McDonalds SA"
+    }, []);
 
-  const [isAddedToCart, setIsAddedToCart] = useState(false);
+    const [isAddedToCart, setIsAddedToCart] = useState(false);
 
-  useEffect(()=>{
-    if(isAddedToCart) setTimeout(()=>{setIsAddedToCart(false)}, 3000);
-  }, [isAddedToCart])
+    useEffect(()=>{
+        if(isAddedToCart) setTimeout(()=>{setIsAddedToCart(false)}, 3000);
+    }, [isAddedToCart])
 
-  const repo = new ProductRepository();
-  const service = new ProductService(repo);
+    const repo = new ProductRepository();
+    const service = new ProductService(repo);
 
-  const products = service.getProducts();
+    const products = service.getProducts();
 
-  const burgers = products.filter(product => product.category === ProductCategory.Burger);
-  const drinks = products.filter(product => product.category === ProductCategory.Drink);
-  const sides = products.filter(product => product.category === ProductCategory.Side);
-  const desserts = products.filter(product => product.category === ProductCategory.Dessert);
+    const burgers = products.filter(product => product.category === ProductCategory.Burger);
+    const drinks = products.filter(product => product.category === ProductCategory.Drink);
+    const sides = products.filter(product => product.category === ProductCategory.Side);
+    const desserts = products.filter(product => product.category === ProductCategory.Dessert);
 
-  const productsRender = [{category: ProductCategory.Burger, products: burgers}, {category: ProductCategory.Drink, products: drinks}, {category: ProductCategory.Side, products: sides}, {category: ProductCategory.Dessert, products: desserts}]
+    const productsRender = [{category: ProductCategory.Burger, products: burgers}, {category: ProductCategory.Drink, products: drinks}, {category: ProductCategory.Side, products: sides}, {category: ProductCategory.Dessert, products: desserts}]
 
-  const handlerAfterAdd = () => setIsAddedToCart(true);
+    const handlerAfterAdd = () => setIsAddedToCart(true);
 
-  return (
-    <>
-      {isAddedToCart && <NotificationCard message="Product added to cart!" link="/pages/cart" linkText="View your cart" />}
+    return (
+        <>
+        {isAddedToCart && <NotificationCard message="Product added to cart!" link="/pages/cart" linkText="View your cart" />}
 
-      <h1 className="md:text-6xl text-4xl leading-normal font-bold">Products</h1>
+        <h1 className="md:text-6xl text-4xl leading-normal font-bold">Products</h1>
 
-      {productsRender.map(productCategory => (
-        <section key={ProductCategory[productCategory.category]} className="flex flex-col md:gap-6 gap-5">
-          <h2 className="md:text-5xl text-3xl leading-normal font-bold">{ProductCategory[productCategory.category]}</h2>
-          <div className="flex flex-row md:gap-8 sm:gap-6 gap-3.5 flex-wrap">
-            {productCategory.products.map((product: Product)=>(
-              <ProductCard key={product.id} product={product} handlerAfterAdd={handlerAfterAdd} />
-            ))} 
-          </div>
-        </section>        
-      ))}
-    </>
-  )
+        {productsRender.map(productCategory => (
+            <section key={ProductCategory[productCategory.category]} className="flex flex-col md:gap-6 gap-5">
+            <h2 className="md:text-5xl text-3xl leading-normal font-bold">{ProductCategory[productCategory.category]}</h2>
+            <div className="flex flex-row md:gap-8 sm:gap-6 gap-3.5 flex-wrap">
+                {productCategory.products.map((product: Product)=>(
+                <ProductCard key={product.id} product={product} handlerAfterAdd={handlerAfterAdd} />
+                ))} 
+            </div>
+            </section>        
+        ))}
+        </>
+    )
 }
