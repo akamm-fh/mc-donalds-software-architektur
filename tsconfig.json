@@ -9,7 +9,6 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
-    "ignoreDeprecations": "6.0",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
@@ -19,11 +18,11 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./app/*"],
       "@/components/*": ["./app/components/*"],
-    }
+    },
+    "types": ["jest", "node"]
   },
   "include": [
     "next-env.d.ts",
